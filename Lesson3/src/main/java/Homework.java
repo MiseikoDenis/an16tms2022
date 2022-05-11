@@ -1,10 +1,15 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Homework {
     public static void main(String[] args) {
         //eng();
-        chet();
-
+        //chet();
+        //mod();
+        //time();
+        table();
+        //System.out.println(average(new int[]{1, 2, 3, 4, 8, -2}));
+        //System.out.println(max(new int[]{1, 2, 3, 200, 5, 9, 0}));
 
     }
 
@@ -25,7 +30,7 @@ public class Homework {
         System.out.println("Введите целое число: ");
         int num = in.nextInt();
         in.close();
-        if (num%2==1){
+        if (num % 2 == 1) {
             System.out.println("Число " + num + " является нечетным");
         } else {
             System.out.println("Число " + num + " является четным");
@@ -35,6 +40,23 @@ public class Homework {
     //3) Меньшее по модулю число
     //Создать программу, которая будет выводить на экран меньшее по модулю из трёх введённых
     // пользователем вещественных чисел с консоли.
+    public static void mod() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите первое число: ");
+        int first = in.nextInt();
+        System.out.println("Введите второе число: ");
+        int second = in.nextInt();
+        System.out.println("Введите третье число: ");
+        int third = in.nextInt();
+        if (Math.abs(first) <= Math.abs(second) && Math.abs(first) <= Math.abs(third)) {
+            System.out.println(first + " меньшее по модулю число");
+        } else if (Math.abs(second) <= Math.abs(first) && Math.abs(second) <= Math.abs(third)) {
+            System.out.println(second + " меньшее по модулю число");
+        } else {
+            System.out.println(third + " меньшее по модулю число");
+        }
+        in.close();
+    }
 
     //4) На некотором предприятии инженер Петров создал устройство, на табло которого показывается количество секунд,
     // оставшихся до конца рабочего дня. Когда рабочий день начинается ровно в 9 часов утра — табло отображает «28800» (т.е. остаётся 8 часов),
@@ -46,6 +68,20 @@ public class Homework {
     //Итак, в переменную n должно записываться случайное (на время тестирования программы) целое число из [0;28800],
     // далее оно должно выводиться на экран (для Петрова) и на следующей строке (для сотрудниц) должна
     // выводиться фраза о количестве полных часов, содержащихся в n секундах.
+    public static void time() {
+        int n = (int) (Math.random() * 28801);
+        System.out.println("Количество секунд: " + n);
+        int h = n / 3600;
+        if (h == 0) {
+            System.out.println("Осталось менее часа");
+        } else if (h == 1) {
+            System.out.println("Остался 1 час");
+        } else if (h >= 2 && h <= 4) {
+            System.out.println("Осталось " + h + " часа");
+        } else {
+            System.out.println("Осталось " + h + " часов");
+        }
+    }
 
     //5) Необходимо написать программу, которая будет выводить на консоль таблицу приведения типов!
 //              byte	short	char	int 	long	float	double	boolean
@@ -64,6 +100,9 @@ public class Homework {
 //    х – если преобразование невозможно,
 //    т  - если преобразование тождественно.
 //    Внимание! используйте System.out.printLn
+    public static void table() {
+
+    }
 
     /**
      * 6) Метод должен вернуть среднее значение из массива чисел
@@ -74,13 +113,25 @@ public class Homework {
      * Метод должен return 3.0
      */
     public static double average(int[] array) {
-        return 0;
+        double res;
+        double sum = 0;
+        for (int i : array) {
+            sum += i ;
+        }
+        res = sum / array.length;
+        return res;
     }
 
     /**
      * 7) Метод должен вернуть максимальный элемент массива. Пример: array = {1,2,10,3} метод возвращает 10
      **/
     public static int max(int[] array) {
-        return 0;
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
     }
 }
