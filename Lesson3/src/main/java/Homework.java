@@ -1,15 +1,15 @@
-import java.util.Random;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Homework {
     public static void main(String[] args) {
-        //eng();
-        //chet();
-        //mod();
-        //time();
+        eng();
+        chet();
+        mod();
+        time();
         table();
-        //System.out.println(average(new int[]{1, 2, 3, 4, 8, -2}));
-        //System.out.println(max(new int[]{1, 2, 3, 200, 5, 9, 0}));
+        System.out.println(average(new int[]{1, 2, 3, 4, 8, -2}));
+        System.out.println(max(new int[]{1, 2, 3, 200, 5, 9, 0}));
 
     }
 
@@ -101,8 +101,22 @@ public class Homework {
 //    т  - если преобразование тождественно.
 //    Внимание! используйте System.out.printLn
     public static void table() {
-
+        String[][] table = {
+                {"       ", "byte", "short", "char", "int", "long", "float", "double", "boolean"},
+                {"byte   ", " т ", " ня ", " я ", "ня", " ня", " ня", "  ня  ", "   x   "},
+                {"short  ", " я ", "  т  ", " я ", "ня", "ня", " ня ", "  ня ", "   x   "},
+                {"char   ", " я ", "  я  ", " т ", "ня", "ня", " ня ", "  ня ", "   x   "},
+                {"int    ", " я ", "  я  ", " я ", "т ", " ня", " ня", "  ня ", "   x   "},
+                {"long   ", " я ", "  я  ", " я ", "я ", " т ", " ня", "  ня  ", "   x   "},
+                {"float  ", " я ", "  я  ", " я ", "я ", " я ", " т  ", "  ня ", "   x   "},
+                {"double ", " я ", "  я  ", " я ", "я ", " я ", " я  ", "  т   ", "   x   "},
+                {"boolean", "  x ", "  x  ", "  x ", "x ", " x  ", "  x  ", "  x   ", "   т   "}
+        };
+        for (String[] strings : table) {
+            System.out.println(Arrays.toString(strings));
+        }
     }
+
 
     /**
      * 6) Метод должен вернуть среднее значение из массива чисел
@@ -116,7 +130,7 @@ public class Homework {
         double res;
         double sum = 0;
         for (int i : array) {
-            sum += i ;
+            sum += i;
         }
         res = sum / array.length;
         return res;
