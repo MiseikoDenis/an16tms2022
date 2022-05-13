@@ -1,20 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Homework {
     public static void main(String[] args) {
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
-        //day();
-        //ameb();
-        //numbs(0);
-        //zodiac(15, 10);
+        day();
+        ameb();
+        numbs(0);
+        zodiac(15, 10);
         printArray();
-//        System.out.println(operation(1));
-//        System.out.println(operation(0));
-//        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
-//        countDevs(103);
-//        countDevs(11);
-//        foobar(6);
-//        foobar(10);
-//        foobar(15);
-//        printPrimeNumbers();
+        System.out.println(operation(1));
+        System.out.println(operation(0));
+        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
+        countDevs(103);
+        countDevs(11);
+        foobar(6);
+        foobar(10);
+        foobar(15);
+        printPrimeNumbers();
     }
 
     //1) Задача на оператор switch!
@@ -69,84 +72,84 @@ public class Homework {
         String zod = "";
         switch (month) {
             case 1:
-                if (day<21){
+                if (day < 21) {
                     zod = "Козерог";
                 } else {
                     zod = "Водолей";
                 }
                 break;
             case 2:
-                if (day<20){
+                if (day < 20) {
                     zod = "Водолей";
                 } else {
                     zod = "Рыбы";
                 }
                 break;
             case 3:
-                if (day<21){
+                if (day < 21) {
                     zod = "Рыбы";
                 } else {
                     zod = "Овен";
                 }
                 break;
             case 4:
-                if (day<21){
+                if (day < 21) {
                     zod = "Овен";
                 } else {
                     zod = "Телец";
                 }
                 break;
             case 5:
-                if (day<22){
+                if (day < 22) {
                     zod = "Телец";
                 } else {
                     zod = "Близнецы";
                 }
                 break;
             case 6:
-                if (day<22){
+                if (day < 22) {
                     zod = "Близнецы";
                 } else {
                     zod = "Рак";
                 }
                 break;
             case 7:
-                if (day<23){
+                if (day < 23) {
                     zod = "Рак";
                 } else {
                     zod = "Лев";
                 }
                 break;
             case 8:
-                if (day<22){
+                if (day < 22) {
                     zod = "Лев";
                 } else {
                     zod = "Дева";
                 }
                 break;
             case 9:
-                if (day<24){
+                if (day < 24) {
                     zod = "Дева";
                 } else {
                     zod = "Весы";
                 }
                 break;
             case 10:
-                if (day<24){
+                if (day < 24) {
                     zod = "Весы";
                 } else {
                     zod = "Скорпион";
                 }
                 break;
             case 11:
-                if (day<23){
+                if (day < 23) {
                     zod = "Скорпион";
                 } else {
                     zod = "Стрелец";
                 }
                 break;
             case 12:
-                if (day<23){
+                if (day < 23) {
                     zod = "Стрелец";
                 } else {
                     zod = "Козерог";
@@ -165,7 +168,20 @@ public class Homework {
      * далее вывести массив на консоль
      */
     private static void printArray() {
-
+        Scanner sc = new Scanner(System.in);
+        int i;
+        System.out.println("Введите положительное число :");
+        do {
+            i = sc.nextInt();
+            if (i <= 0) {
+                System.out.println("Ошибка! Введите положительное число повторно! :");
+            }
+        } while (i <= 0);
+        int[] nums = new int[i];
+        for (int j = 0; j < nums.length; j++) {
+            nums[j] = (int) (Math.random() * 100);
+        }
+        System.out.println(Arrays.toString(nums));
     }
 
 
@@ -177,8 +193,14 @@ public class Homework {
      * вернуть number после выполнения операций
      */
     public static int operation(int number) {
-        // тут пишем логику
-        return 0;
+        if (number > 0) {
+            number++;
+        } else if (number < 0) {
+            number -= 2;
+        } else {
+            number = 10;
+        }
+        return number;
     }
 
     /**
@@ -187,8 +209,13 @@ public class Homework {
      * в котором это значение распечатается на консоль.
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
-        // тут пишем логику
-        return 0;
+        int count = 0;
+        for (int anInt : ints) {
+            if (anInt % 2 == 1) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -201,7 +228,13 @@ public class Homework {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-        // тут пишем логику
+        if (count % 10 == 1 && count % 100 != 11) {
+            System.out.println(count + " программист");
+        } else if (count % 10 == 0 || count % 10 >= 5 || (count % 100 == 11)) {
+            System.out.println(count + " программистов");
+        } else {
+            System.out.println(count + " программиста");
+        }
     }
 
     /**
@@ -211,7 +244,15 @@ public class Homework {
      * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
      */
     public static void foobar(int number) {
-        // тут пишем логику
+        if (number % 3 == 0 && number % 5 == 0) {
+            System.out.println("foobar");
+        } else if (number % 3 == 0) {
+            System.out.println("foo");
+        } else if (number % 5 == 0) {
+            System.out.println("bar");
+        } else {
+            System.out.println("Число не делится на 3 или 5 без остатка");
+        }
     }
 
     /**
@@ -220,6 +261,17 @@ public class Homework {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        // тут пишем логику
+        System.out.print("2");
+        for (int i = 3; i < 1000; i++) {
+            int count = 0;
+            for (int j = 2; j <= (int) Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                System.out.print(", " + i);
+            }
+        }
     }
 }
