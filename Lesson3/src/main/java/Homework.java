@@ -30,7 +30,7 @@ public class Homework {
         System.out.println("Введите целое число: ");
         int num = in.nextInt();
         in.close();
-        if (num % 2 == 1) {
+        if (num % 2 == 1 || num % 2 == -1) {
             System.out.println("Число " + num + " является нечетным");
         } else {
             System.out.println("Число " + num + " является четным");
