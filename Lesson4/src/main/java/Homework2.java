@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Homework2 {
@@ -8,7 +7,8 @@ public class Homework2 {
         //nechet();
         //max();
         //replaceNechet();
-        replaceMax();
+        //replaceMax();
+        povtor(new int[]{0,3,46,3,2,3,2});
         //calculateSumOfDiagonalElements();
         //printMatrix();
     }
@@ -139,7 +139,7 @@ public class Homework2 {
         int max = 0;
         int ind = 0;
         for (int i = 0; i < mass.length; i++) {
-            if(mass[i]>=max){
+            if (mass[i] >= max) {
                 max = mass[i];
                 ind = i;
             }
@@ -150,12 +150,34 @@ public class Homework2 {
         System.out.println(Arrays.toString(mass));
     }
 
-//        7) Проверить, различны ли все элементы массива, если не различны то вывести элемент повторяющийся
+    //        7) Проверить, различны ли все элементы массива, если не различны то вывести элемент повторяющийся
 //        Пример: {0,3,46,3,2,1,2}
 //        Массив имеет повторяющиеся элементы 3, 2
 //        Пример: {0,34,46,31,20,1,28}
 //        Массив не имеет повторяющихся элементов
-
+    public static void povtor(int[] array) {
+        boolean count = false;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i+1; j < array.length; ++j) {
+                if (array[i] == array[j]) {
+                    count = true;
+                    break;
+                }
+            }
+        }
+        if (count) {
+            System.out.print("Массив имеет повторяющиеся элементы ");
+            for (int i = 0; i < array.length; i++) {
+                for (int j = i+1; j < array.length; ++j) {
+                    if (array[i] == array[j]) {
+                        System.out.print(array[i] + " ");
+                    }
+                }
+            }
+        } else {
+            System.out.print("Массив не имеет повторяющихся элементов ");
+        }
+    }
 //        8) Создаём квадратную матрицу, размер вводим с клавиатуры.
 //        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
 //        Далее необходимо транспонировать матрицу(1 столбец станет 1-й строкой, 2-й столбец - 2-й строкой и т. д.)
