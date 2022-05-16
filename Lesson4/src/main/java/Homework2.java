@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Homework2 {
     public static void main(String[] args) {
@@ -8,8 +9,9 @@ public class Homework2 {
         //max();
         //replaceNechet();
         //replaceMax();
-        povtor(new int[]{0,3,46,3,2,3,2});
-        //calculateSumOfDiagonalElements();
+        //povtor(new int[]{0, 3, 46, 3, 2, 3, 2});
+        //matrix();
+        calculateSumOfDiagonalElements();
         //printMatrix();
     }
 //        Задачи:
@@ -158,7 +160,7 @@ public class Homework2 {
     public static void povtor(int[] array) {
         boolean count = false;
         for (int i = 0; i < array.length; i++) {
-            for (int j = i+1; j < array.length; ++j) {
+            for (int j = i + 1; j < array.length; ++j) {
                 if (array[i] == array[j]) {
                     count = true;
                     break;
@@ -168,17 +170,22 @@ public class Homework2 {
         if (count) {
             System.out.print("Массив имеет повторяющиеся элементы ");
             for (int i = 0; i < array.length; i++) {
-                for (int j = i+1; j < array.length; ++j) {
+                int count2 = 0;
+                for (int j = i + 1; j < array.length; ++j) {
                     if (array[i] == array[j]) {
-                        System.out.print(array[i] + " ");
+                        count2++;
                     }
+                }
+                if (count2 == 1) {
+                    System.out.print(array[i] + " ");
                 }
             }
         } else {
-            System.out.print("Массив не имеет повторяющихся элементов ");
+            System.out.print("Массив не имеет повторяющихся элементов");
         }
     }
-//        8) Создаём квадратную матрицу, размер вводим с клавиатуры.
+
+    //        8) Создаём квадратную матрицу, размер вводим с клавиатуры.
 //        Заполняем случайными числами в диапазоне от 0 до 50. И выводим на консоль(в виде матрицы).
 //        Далее необходимо транспонировать матрицу(1 столбец станет 1-й строкой, 2-й столбец - 2-й строкой и т. д.)
 //        Пример:
@@ -186,13 +193,59 @@ public class Homework2 {
 //          6 7 8 9      2 7 3 5
 //          3 3 4 5      3 8 4 6
 //          1 5 6 7      4 9 5 7
-
+    public static void matrix() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите количество строк в массиве: ");
+        int a = sc.nextInt();
+        System.out.println("Введите количество столбцов в массиве: ");
+        int b = sc.nextInt();
+        sc.close();
+        int[][] mat = new int[a][b];
+        System.out.println("Оригинальная матрица: ");
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                mat[i][j] = (int) (Math.random() * 51);
+            }
+            System.out.println(Arrays.toString(mat[i]));
+        }
+        System.out.println("Транспонированная матрица: ");
+        int[][] mat2 = new int[b][a];
+        for (int i = 0; i < mat2.length; i++) {
+            for (int j = 0; j < mat2[i].length; j++) {
+                mat2[i][j] = mat[j][i];
+            }
+            System.out.println(Arrays.toString(mat2[i]));
+        }
+    }
 
     /**
      * заполнить рандомно 2-х мерный массив и посчитать сумму элементов на диагонали
      */
     public static void calculateSumOfDiagonalElements() {
-        //пишем логику и выводим результат используя System.out.println
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите количество строк в массиве: ");
+        int a = sc.nextInt();
+        System.out.println("Введите количество столбцов в массиве: ");
+        int b = sc.nextInt();
+        sc.close();
+        int sum = 0;
+        int[][] mat = new int[a][b];
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                mat[i][j] = (int) (Math.random() * 100);
+            }
+            System.out.println(Arrays.toString(mat[i]));
+        }
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                if (i == j) {
+                    sum += mat[i][j];
+                } else if (i == (mat[j].length - j)) {
+
+                }
+            }
+            System.out.println("Сумма элементов матрицы по диагонали: " + sum);
+        }
     }
 
 
