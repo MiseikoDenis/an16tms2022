@@ -3,16 +3,17 @@ import java.util.Scanner;
 
 public class Homework2 {
     public static void main(String[] args) {
-        //System.out.println(summ(5, -3));
-        //triangles();
-        //nechet();
-        //max();
-        //replaceNechet();
-        //replaceMax();
-        //povtor(new int[]{0, 3, 46, 3, 2, 3, 2});
-        //matrix();
+        System.out.println(summ(5, -3));
+        triangles();
+        nechet();
+        max();
+        replaceNechet();
+        replaceMax();
+        povtor(new int[]{0, 3, 46, 3, 2, 3, 2});
+        matrix();
         calculateSumOfDiagonalElements();
-        //printMatrix();
+        printMatrix();
+        triples();
     }
 //        Задачи:
 
@@ -240,12 +241,12 @@ public class Homework2 {
             for (int j = 0; j < mat[i].length; j++) {
                 if (i == j) {
                     sum += mat[i][j];
-                } else if (i == (mat[j].length - j)) {
-
+                } else if ((mat.length - i - 1) == j) {
+                    sum += mat[i][j];
                 }
             }
-            System.out.println("Сумма элементов матрицы по диагонали: " + sum);
         }
+        System.out.println("Сумма элементов матрицы по диагонали: " + sum);
     }
 
 
@@ -272,10 +273,36 @@ public class Homework2 {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-        // тут пишем логику
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите количество строк в массиве: ");
+        int a = sc.nextInt();
+        System.out.println("Введите количество столбцов в массиве: ");
+        int b = sc.nextInt();
+        sc.close();
+        int[][] mat = new int[a][b];
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                mat[i][j] = (int) (Math.random() * 100);
+            }
+            System.out.println(Arrays.toString(mat[i]));
+        }
+        System.out.println("Массив после преобразования :");
+        String[][] mat2 = new String[a][b];
+        for (int i = 0; i < mat2.length; i++) {
+            for (int j = 0; j < mat2[i].length; j++) {
+                if (mat[i][j] % 3 == 0) {
+                    mat2[i][j] = "+";
+                } else if (mat[i][j] % 7 == 0) {
+                    mat2[i][j] = "-";
+                } else {
+                    mat2[i][j] = "*";
+                }
+            }
+            System.out.println(Arrays.toString(mat2[i]));
+        }
     }
 
-//    Доп задача!
+    //    Доп задача!
 //    Создать матрицу размера 10 на 10 и заполнить ее случайными целочислеными значениями (тип int) из диапазона от 0 до 10000.
 //    Найти максимум среди сумм трех соседних элементов в строке. Для найденной тройки с максимальной суммой выведите значение суммы и индексы(i,j) первого элемента тройки.
 //    Пример:
@@ -284,4 +311,26 @@ public class Homework2 {
 //    Вывод в консоль:
 //            11535 (0,5)
 //            *Пояснение. Первое число - сумма тройки  [2789, 4, 8742]. Числа в скобках это 0 строка и 5 столбец - индекс первого элемента тройки, то есть индекс числа 2789.
+    public static void triples() {
+        int a = 0;
+        int b = 0;
+        int sumMax = 0;
+        int[][] mat = new int[10][10];
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                mat[i][j] = (int) (Math.random() * 10000);
+            }
+            System.out.println(Arrays.toString(mat[i]));
+        }
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length - 2; j++) {
+                if (mat[i][j] + mat[i][j + 1] + mat[i][j + 2] >= sumMax) {
+                    sumMax = mat[i][j] + mat[i][j + 1] + mat[i][j + 2];
+                    a = i;
+                    b = j;
+                }
+            }
+        }
+        System.out.println(sumMax + " (" + a + ", " + b + ")");
+    }
 }
