@@ -230,7 +230,7 @@ public class Homework {
     public static void countDevs(int count) {
         if (count % 10 == 1 && count % 100 != 11) {
             System.out.println(count + " программист");
-        } else if (count % 10 == 0 || count % 10 >= 5 || (count % 100 == 11) || (count % 100 == 12)|| (count % 100 == 13)|| (count % 100 == 14)) {
+        } else if (count % 10 == 0 || count % 10 >= 5 || ((count % 100 >= 11) && (count%100<=14))) {
             System.out.println(count + " программистов");
         } else {
             System.out.println(count + " программиста");
