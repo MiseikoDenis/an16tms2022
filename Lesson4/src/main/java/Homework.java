@@ -211,7 +211,7 @@ public class Homework {
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
         int count = 0;
         for (int anInt : ints) {
-            if (anInt % 2 == 1) {
+            if (anInt % 2 != 0) {
                 count++;
             }
         }
@@ -261,8 +261,7 @@ public class Homework {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        System.out.print("2");
-        for (int i = 3; i < 1000; i++) {
+        for (int i = 2; i < 1000; i++) {
             int count = 0;
             for (int j = 2; j <= (int) Math.sqrt(i); j++) {
                 if (i % j == 0) {
@@ -270,7 +269,7 @@ public class Homework {
                 }
             }
             if (count == 0) {
-                System.out.print(", " + i);
+                System.out.print(" " + i);
             }
         }
     }
