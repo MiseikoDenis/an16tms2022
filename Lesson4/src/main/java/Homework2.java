@@ -81,14 +81,8 @@ public class Homework2 {
     //        3) Создайте массив из всех нечётных чисел от 1 до 100, выведите его на экран в строку,
 //        а затем этот же массив выведите на экран тоже в строку, но в обратном порядке (99 97 95 93 ... 7 5 3 1).
     public static void nechet() {
-        int start = 1;
         int finish = 100;
-        int length = 0;
-        for (int i = start; i <= finish; i++) {
-            if (i % 2 == 1) {
-                length++;
-            }
-        }
+        int length = finish / 2 + finish % 2;
         int[] nechet = new int[length];
         for (int i = 0; i < nechet.length; i++) {
             nechet[i] = i * 2 + 1;
