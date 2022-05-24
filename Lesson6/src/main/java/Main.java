@@ -11,8 +11,8 @@ public class Main {
         MilitaryOffice mf = new MilitaryOffice(personRegistry);
 
         mf.all();
-        readyCity("Минск");
-        readyAge();
-        readyName("Александр");
+        mf.readyCity("Минск");
+        mf.readyAge();
+        mf.readyName("Александр");
     }
 }
