@@ -11,7 +11,7 @@ public class MilitaryOffice {
             if (person.getGender().equals("Мужчина")
                     && person.getAge() < 27
                     && person.getAge() >= 18) {
-                System.out.println(person.getName);
+                System.out.println(person.getName());
             }
         }
     }
@@ -23,7 +23,7 @@ public class MilitaryOffice {
             if (person.getGender().equals("Мужчина")
                     && person.getAge() < 27
                     && person.getAge() >= 18
-                    && person.getCity.equals(city)) {
+                    && person.getCity().equals(city)) {
                 count++;
             }
         }
@@ -31,9 +31,10 @@ public class MilitaryOffice {
     }
 
     public void readyAge() {
+        int count = 0;
         System.out.print("Количество призывников в возрасте от 25 до 27: ");
         for (Person person : personRegistry) {
-            if (person.getAge() < 27 && person.getAge() >= 25) {
+            if (person.getAge() <= 27 && person.getAge() >= 25) {
                 count++;
             }
         }
@@ -41,9 +42,10 @@ public class MilitaryOffice {
     }
 
     public void readyName(String name){
+        int count = 0;
         System.out.print("Количество призывников с именем " + name + ": ");
         for (Person person : personRegistry) {
-            if (person.getName.equals(name)) {
+            if (person.getName().equals(name)) {
                 count++;
             }
         }
