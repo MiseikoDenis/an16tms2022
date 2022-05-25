@@ -1,3 +1,5 @@
+package by.tms.model;
+
 public class MilitaryOffice {
     private Person[] personRegistry;
 
