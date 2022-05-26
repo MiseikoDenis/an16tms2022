@@ -28,6 +28,14 @@ public class Car {
         }
     }
 
+    public void offEngine(){
+        if (moving){
+            System.out.println("Please stop the car first");
+        } else {
+            engine.setOn(false);
+        }
+    }
+
     public void start() {
         if (engine.isOn()) {
             moving = true;
