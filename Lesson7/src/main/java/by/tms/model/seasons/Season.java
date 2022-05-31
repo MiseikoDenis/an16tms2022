@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum Seasons {
+public enum Season {
 
     WINTER(-10),
     SPRING(5),
@@ -23,7 +23,7 @@ public enum Seasons {
         return "It's cold season";
     }
 
-    public void love(Seasons season) {
+    public void love(Season season) {
         switch (season) {
             case SUMMER -> System.out.println("I love summer");
             case WINTER -> System.out.println("I love winter");

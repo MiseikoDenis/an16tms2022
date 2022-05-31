@@ -1,6 +1,6 @@
 package by.tms.service;
 
-import by.tms.model.seasons.Seasons;
+import by.tms.model.seasons.Season;
 import by.tms.model.shop.Bouquet;
 import by.tms.model.shop.FlowerMarket;
 
@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
         //Задача про сезоны
-        Seasons[] seasons = Seasons.values();
-        for (Seasons season : seasons) {
+        Season[] seasons = Season.values();
+        for (Season season : seasons) {
             season.love(season);
             System.out.println(season.getTemperature());
             System.out.println(season.getDescription());
@@ -28,10 +28,10 @@ public class Main {
                 market.getBouquet("HERBERA", "LILY", "TULIP"),
         };
         for (Bouquet bouquet : totalBouqets) {
-            System.out.println("Total cost of this bouquet is " + bouquet.Cost());
+            System.out.println("Total cost of this bouquet is " + bouquet.cost());
             System.out.println("It consists of: " + bouquet);
-            System.out.println("Total number of flowers in this bouquet: " + bouquet.number());
-            totalNumber += bouquet.number();
+            System.out.println("Total number of flowers in this bouquet: " + bouquet.getCountFlowers());
+            totalNumber += bouquet.getCountFlowers();
             System.out.println("---------------------");
         }
         System.out.println("Total number of flowers in these bouquets: " + totalNumber);

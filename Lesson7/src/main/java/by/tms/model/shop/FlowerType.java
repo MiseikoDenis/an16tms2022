@@ -13,13 +13,10 @@ public enum FlowerType {
     TULIP(8),
     CARNATION(11);
 
-    private int cost;
+    private final int cost;
 
     public int getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
 }

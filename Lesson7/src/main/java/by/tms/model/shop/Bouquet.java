@@ -5,24 +5,24 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Bouquet {
 
-    private Flower[] bouquet;
+    private Flower[] flowers;
 
-    public int Cost() {
+    public int cost() {
         int cost = 0;
-        for (Flower flower : bouquet) {
+        for (Flower flower : flowers) {
             cost += flower.getCost();
         }
         return cost;
     }
 
-    public int number() {
-        return bouquet.length;
+    public int getCountFlowers() {
+        return flowers.length;
     }
 
     @Override
     public String toString() {
         String flowers = "";
-        for (Flower flower : bouquet) {
+        for (Flower flower : this.flowers) {
             flowers += flower.getName() + " ";
         }
         return flowers;
