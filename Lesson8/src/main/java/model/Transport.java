@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Transport {
+public abstract class Transport {
 
     private int power;
     private int maxSpeed;

@@ -14,7 +14,7 @@ public class Civil extends Air {
         this.business = business;
     }
 
-    private String business() {
+    private String getBusinessClassInfo() {
         if (business) {
             return ", have business class";
         } else {
@@ -34,6 +34,6 @@ public class Civil extends Air {
         return "This civil aircraft have power " + getPower() + ", max speed " + getMaxSpeed() +
                 ", weight " + getWeight() + ", brand " + getBrand() + ", " + getWingspan() +
                 " wingspan, minimal runway length " + getMinRunwayLength() +
-                ", number of passengers " + passengersCapacity + business() + " and power in kW is " + powerKw();
+                ", number of passengers " + passengersCapacity + getBusinessClassInfo() + " and power in kW is " + powerKw();
     }
 }

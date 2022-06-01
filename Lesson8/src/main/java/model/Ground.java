@@ -3,7 +3,7 @@ package model;
 import lombok.Getter;
 
 @Getter
-public class Ground extends Transport {
+public abstract class Ground extends Transport {
 
     private final int wheels;
     private final double fuelConsumption;

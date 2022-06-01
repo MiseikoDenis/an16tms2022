@@ -3,7 +3,7 @@ package model;
 import lombok.Getter;
 
 @Getter
-public class Air extends Transport {
+public abstract class Air extends Transport {
 
     private final int wingspan;
     private final int minRunwayLength;
