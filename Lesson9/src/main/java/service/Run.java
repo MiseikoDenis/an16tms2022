@@ -1,5 +1,6 @@
-package model.robot;
+package service;
 
+import model.robot.Robot;
 import model.robot.hands.SamsungHand;
 import model.robot.hands.SonyHand;
 import model.robot.hands.ToshibaHand;
