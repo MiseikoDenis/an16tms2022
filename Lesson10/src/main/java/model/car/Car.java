@@ -15,7 +15,9 @@ public class Car {
     private int price;
 
     public void start() throws EngineFailException {
-        if (((int) (Math.random() * 21)) % 2 != 0) throw new EngineFailException("Car " + model + " broke");
+        if (((int) (Math.random() * 21)) % 2 != 0) {
+            throw new EngineFailException("Car " + model + " broke");
+        }
         System.out.println("Car " + model + " started");
     }
 

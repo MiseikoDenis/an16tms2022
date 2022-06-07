@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         //Задача с машиной
-
         Car[] cars = new Car[]{
                 new Car("Mitsubishi", 250, 20000),
                 new Car("Geely", 300, 50000),
@@ -25,6 +24,6 @@ public class Main {
 
         //Задача про авторизацию
         System.out.println("Authorization was complete? : "
-                + Authorization.checkAuthorization("_login34737asfa_236_", "pass", "pass"));
+                + Authorization.checkAuthorization("_login34737asfa_236_", "pass1", "pass"));
     }
 }
