@@ -1,6 +1,6 @@
 package model;
 
-public interface Report {
+public interface Reportable {
 
     void generateReport();
 }

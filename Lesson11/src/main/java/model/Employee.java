@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Employee implements Report {
+public class Employee implements Reportable {
 
     private String fullname;
     private double salary;

@@ -1,5 +1,9 @@
 package service;
 
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Main {
     public static void main(String[] args) {
 //        System.out.println(cut("qoiAwqAgasngBabhklBjh", "A", "B"));
@@ -17,7 +21,10 @@ public class Main {
 //        }
 //        System.out.println(onlyEng("Методы доступа называют ещё аксессорами (от англ. access — доступ), " +
 //                "или по отдельности — геттерами (англ. get — чтение) and сеттерами (англ. set — запись)"));
-        pm("cab, ccab, cccab");
+//        printWords("cab, ccab, cccab");
+//        printJavaX("Versions: Java  5, Java 6, Java   7, Java 8, Java 12.");
+        splitEng("One two three раз два три one1 two2 123 ");
+//        System.out.println(validate("5akj5"));
 
     }
 
@@ -71,7 +78,7 @@ public class Main {
 
     //делим строку на массив слов
     public static String[] allWords(String str) {
-        return str.trim().split("\\W+");
+        return str.trim().split("\\s*(\\s|,|!|\\.|\\?|-)\\s*");
     }
 
     public static boolean containsPalindrom(String str) {
@@ -130,7 +137,48 @@ public class Main {
 //     * ccab
 //     * cccab
 
-    public static void pm(String str) {
+    public static void printWords(String str) {
+        Pattern pattern = Pattern.compile("[a-zA-Z]+");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
 
+    //    3) Дана строка "Versions: Java  5, Java 6, Java   7, Java 8, Java 12."  Найти все подстроки "Java X", где X - число и распечатать их.
+    public static void printJavaX(String str) {
+        Pattern pattern = Pattern.compile("Java\\s+\\d+");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
+
+    //    4*)со звездочкой! Предложение состоит из нескольких слов, разделенных пробелами. Например: "One two three раз два три one1 two2 123 ".
+//     *  Найти количество слов, содержащих только символы латинского алфавита.
+//     *  Необходимо составить регулярное выражение и вызвать его в методе split(Regexp)
+//     *  String str = "One two three раз два три one1 two2 123 ";
+//     *  System.out.println(str.split("регулярное выражение").length);
+//     *  Подсказка: тут надо использовать:
+//     *  1) группы ()
+//     *  2) | - оператор или
+//     *  3) [] - группировки символов
+//     *  4) +,* - квантификаторы
+    public static void splitEng(String str) {
+        System.out.println(Arrays.toString(str.split("\\W+|(([a-zA-Z]*\\d*)*\\d+\\W+)|(\\d+([a-zA-Z]*\\d*)*\\W+)|}")));
+    }
+
+//    5*)со звездочкой! В метод на вход приходит строка
+//    *  public static boolean validate(String str) {
+//        return false;
+//    }
+//     * Необходимо выполнить проверку на валидацию входящей строки и вернуть false или true
+//     * - Строка должна содержать только маленькие латинские буквы и цифры 1 или 5 без знака подчеркивания.
+//     * - Длина строки должна быть от 4 до 20 символов.
+
+    public static boolean validate(String str) {
+        return str.matches("[a-z15]{4,20}");
     }
 }
+
+
