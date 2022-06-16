@@ -44,8 +44,7 @@ public class Main {
 //     * (т.е которые читаются справа на лево и слева на право одинаково, например: заказ, казак, дед...)
     public static void writePalindrome(String[] str) {
         for (String word : str) {
-            boolean pal = isPalindrom(word);
-            if (pal) {
+            if (isPalindrom(word)) {
                 System.out.println(word);
             }
         }
@@ -53,14 +52,12 @@ public class Main {
 
     //проверяем слово, является ли оно палиндромом
     public static boolean isPalindrom(String word) {
-        boolean pal = true;
         for (int i = 0; i < word.length() / 2; i++) {
             if (word.charAt(i) != word.charAt(word.length() - i - 1)) {
-                pal = false;
-                break;
+                return false;
             }
         }
-        return pal;
+        return true;
     }
 
     //    4) Есть строка в которой содержится текст, предложения разделены точками.
@@ -80,7 +77,7 @@ public class Main {
 
     //делим строку на массив слов
     public static String[] allWords(String str) {
-        return str.trim().split("\\s*(\\s|,|!|\\.|\\?|-)\\s*");
+        return str.trim().split("[ ,!.?-]+");
     }
 
     public static boolean containsPalindrom(String str) {
@@ -167,7 +164,7 @@ public class Main {
 //     *  3) [] - группировки символов
 //     *  4) +,* - квантификаторы
     public static void splitEng(String str) {
-        System.out.println(str.split("\\W+|(([a-zA-Z]*\\d*)*\\d+\\W+)|(\\d+([a-zA-Z]*\\d*)*\\W+)|}").length);
+        System.out.println(str.split("\W+|([a-zA-Z]*\d+[a-zA-Z]*)").length);
     }
 
 //    5*)со звездочкой! В метод на вход приходит строка
