@@ -1,30 +1,32 @@
 package service;
 
+import model.Employee;
+
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-//        System.out.println(cut("qoiAwqAgasngBabhklBjh", "A", "B"));
-//        System.out.println(replace("qoiAwqAgasngBabhklBjh"));
-//        writePalindrome(new String[]{"zakaz", "symbol", "lol"});
-//        writeSentences(" asdasgag zakaz. akjsgalskgal asgasg as qwa  tqwt qwt qwqtqw. asga qwa, qqh");
-//        System.out.println(middle("code"));
-//        Employee[] employees = new Employee[]{
-//                new Employee("Петр Ильич Чайковский", 248.593),
-//                new Employee("Иван Иванович Иванов", 521.500),
-//                new Employee("Дмитрий Сергеевич Петров", 212.6432)
-//        };
-//        for (Employee employee : employees) {
-//            employee.generateReport();
-//        }
-//        System.out.println(onlyEng("Методы доступа называют ещё аксессорами (от англ. access — доступ), " +
-//                "или по отдельности — геттерами (англ. get — чтение) and сеттерами (англ. set — запись)"));
-//        printWords("cab, ccab, cccab");
-//        printJavaX("Versions: Java  5, Java 6, Java   7, Java 8, Java 12.");
+        System.out.println(cut("qoiAwqAgasngBabhklBjh", "A", "B"));
+        System.out.println(replace("qoiAwqAgasngBabhklBjh"));
+        writePalindrome(new String[]{"zakaz", "symbol", "lol"});
+        writeSentences(" asdasgag zakaz. akjsgalskgal asgasg as qwa  tqwt qwt qwqtqw. asga qwa, qqh");
+        System.out.println(middle("code"));
+        Employee[] employees = new Employee[]{
+                new Employee("Петр Ильич Чайковский", 248.593),
+                new Employee("Иван Иванович Иванов", 521.500),
+                new Employee("Дмитрий Сергеевич Петров", 212.6432)
+        };
+        for (Employee employee : employees) {
+            employee.generateReport();
+        }
+        System.out.println(onlyEng("Методы доступа называют ещё аксессорами (от англ. access — доступ), " +
+                "или по отдельности — геттерами (англ. get — чтение) and сеттерами (англ. set — запись)"));
+        printWords("cab, ccab, cccab");
+        printJavaX("Versions: Java  5, Java 6, Java   7, Java 8, Java 12.");
         splitEng("One two three раз два три one1 two2 123 ");
-//        System.out.println(validate("5akj5"));
+        System.out.println(validate("5akj5"));
 
     }
 
