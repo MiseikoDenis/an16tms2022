@@ -164,7 +164,7 @@ public class Main {
 //     *  3) [] - группировки символов
 //     *  4) +,* - квантификаторы
     public static void splitEng(String str) {
-        System.out.println(Arrays.toString(str.split("\\W+|([a-zA-Z]*\\d+[a-zA-Z]*)")));
+        System.out.println(str.split("\W+|([a-zA-Z]*\d+[a-zA-Z]*)").length);
     }
 
 //    5*)со звездочкой! В метод на вход приходит строка
