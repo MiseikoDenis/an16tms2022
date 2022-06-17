@@ -12,7 +12,7 @@ public class Task1 {
             String s;
             while ((s = br.readLine()) != null) {
                 s = s.trim();
-                if (isPalindrom(s) && s.matches("[a-zA-Zа-яА-Я-]+")) {
+                if (isPalindrom(s)) {
                     bw.write(s + "\n");
                 }
             }
