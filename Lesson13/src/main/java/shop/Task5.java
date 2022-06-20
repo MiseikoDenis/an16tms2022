@@ -19,5 +19,11 @@ public class Task5 {
 
         mall.sortByTime();
         System.out.println(mall.getList());
+
+        mall.sortByPrice();
+        System.out.println(mall.getList());
+
+        mall.sortByPriceReversed();
+        System.out.println(mall.getList());
     }
 }

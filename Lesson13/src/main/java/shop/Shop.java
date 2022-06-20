@@ -74,4 +74,14 @@ public class Shop {
         ProductTimeComparator pcomp = new ProductTimeComparator();
         list.sort(pcomp);
     }
+
+    public void sortByPrice() {
+        ProductPriceComparator comp = new ProductPriceComparator();
+        list.sort(comp);
+    }
+
+    public void sortByPriceReversed() {
+        ProductPriceComparator comp = new ProductPriceComparator();
+        list.sort(comp.reversed());
+    }
 }
