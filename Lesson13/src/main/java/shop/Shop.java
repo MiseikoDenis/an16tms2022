@@ -3,7 +3,6 @@ package shop;
 import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 @AllArgsConstructor
 public class Shop {
@@ -71,8 +70,8 @@ public class Shop {
         }
     }
 
-    public void sort() {
-        ProductComparator pcomp = new ProductComparator();
+    public void sortByTime() {
+        ProductTimeComparator pcomp = new ProductTimeComparator();
         list.sort(pcomp);
     }
 }
