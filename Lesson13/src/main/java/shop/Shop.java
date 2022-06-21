@@ -21,27 +21,27 @@ public class Shop {
                 5. Выход""");
         int choice = in.nextInt();
         switch (choice) {
-            case 1:
+            case 1 -> {
                 sort();
                 more();
-                break;
-            case 2:
+            }
+            case 2 -> {
                 addProduct();
                 more();
-                break;
-            case 3:
+            }
+            case 3 -> {
                 deleteProduct();
                 more();
-                break;
-            case 4:
+            }
+            case 4 -> {
                 setProduct();
                 more();
-                break;
-            case 5:
-                break;
-            default:
+            }
+            case 5 -> System.out.println("Завершение программы...");
+            default -> {
                 System.out.println("Неправильно выбран пункт. Повторите выбор");
                 start();
+            }
         }
         in.close();
     }
@@ -82,7 +82,7 @@ public class Shop {
         System.out.println("Введите id товара");
         int id = in.nextInt();
         System.out.println("Введите название товара");
-        String name = in.nextLine();
+        String name = in.next();
         System.out.println("Введите цену товара");
         int price = in.nextInt();
         add(new Product(id, name, price, LocalDateTime.now()));
@@ -100,7 +100,7 @@ public class Shop {
         System.out.println("Введите id товара");
         int id = in.nextInt();
         System.out.println("Введите название товара");
-        String name = in.nextLine();
+        String name = in.next();
         System.out.println("Введите цену товара");
         int price = in.nextInt();
         set(new Product(id, name, price, LocalDateTime.now()));
@@ -115,7 +115,7 @@ public class Shop {
         int choice = in.nextInt();
         switch (choice) {
             case 1 -> start();
-            case 2 -> in.close();
+            case 2 -> System.out.println("Завершение программы...");
             default -> System.out.println("Неправильно выбран пункт. Повторите выбор");
         }
     }
@@ -183,8 +183,8 @@ public class Shop {
     }
 
     public void sortByTime() {
-        ProductTimeComparator pcomp = new ProductTimeComparator();
-        list.sort(pcomp);
+        ProductTimeComparator comp = new ProductTimeComparator();
+        list.sort(comp);
     }
 
     public void sortByPrice() {
